@@ -28,5 +28,20 @@ def find(string, substring):
             counter += 1
     return counter
 
-print(find('azcbobobegghakl', 'bob'))
+print(find('azc bob obegghakl bob', 'bob'))
 
+
+
+def search(sub, st):
+    count = 0
+    for i in range(len(st) - len(sub)):
+        if  st[i: i + len(sub)] == sub:
+            count += 1
+    return count
+
+res = search('12','hello 12 2 e worl 12 de')
+
+if res > 0:
+    print(res)
+else:
+    print('No search')
