@@ -46,22 +46,64 @@
 # else:
 #     print('No search')
 
-text_new = ''
-guess_row = ''
-word_letter = "word"
-# Write your code below!
-while len(text_new) < len(word_letter):
-    guess_row = raw_input("Enter letter:")
-    if guess_row not in word_letter:
-        print "No letter"
-        break
-    else:
-        if guess_row not in text_new:
-            text_new += guess_row
-            print text_new
-        else:
-            print("Yes this letter in word!")
-            print text_new
-        continue
-print "You big game !" + word_letter
-    
+# text_new = ''
+# word_letter = "word"
+# # Write your code below!
+# while len(text_new) < len(word_letter):
+#     guess_row = raw_input("Enter letter:")
+#     if guess_row not in word_letter:
+#         print "No letter"
+#         break
+#     else:
+#         if guess_row not in text_new:
+#             text_new += guess_row
+#             print text_new
+#         else:
+#             print("Yes this letter in word!")
+#             print text_new
+# print "You big game !" + word_letter
+
+import requests
+from bs4 import BeautifulSoup
+
+
+def trade_spider(max_pages):
+    page = 1
+    page_attr_my = ''
+    while page <= max_pages:
+		url = "https://auto.ria.com/moto/mopedy/?page=" + str(page)
+		source_code = requests.get(url)
+		plain_text = source_code.text
+		soup = BeautifulSoup(plain_text)
+		for link in soup.findAll("a", {"class": "address"}):
+			href = link.get("href")
+			title = link.get("title")
+			print title
+			print href
+			get_single_item_data(href)
+		page += 1
+
+def get_single_item_data(item_url):
+	source_code = requests.get(item_url)
+	plain_text = source_code.text
+	soup = BeautifulSoup(plain_text)
+	for item_name in soup.findAll("span", {"class": "price"}):
+		print item_name.string
+	for item_name in soup.findAll("div", {"id": "description"}):
+		print item_name
+
+
+trade_spider(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
