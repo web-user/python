@@ -120,7 +120,8 @@
 # print(obj_shop.int_feild)
 # print(obj_shop2.int_feild)
 
-"""   
+""" 
+Range  
 является универсальной функцией для создания списков (list) содержащих арифметическую прогрессию
 range() может принимать от одного до трех агрументов, при этом аргументами должны быть целые числа (int)
 range(старт, стоп, шаг)
@@ -142,3 +143,12 @@ Map applies a function to all the items in an list
 
 # squeret = list( map( lambda x: x **2, items_list ) )
 
+"""
+Filter 
+filter возвращает список элементов, для которых заданная функция возвращает True.
+filer уподобляется циклу, но он является встроенной функцией и работает быстрее
+"""
+# number_list = range(-5, 5)
+
+# less_than_zero = list(filter(lambda x: x < 0, number_list))
+# print(less_than_zero)
