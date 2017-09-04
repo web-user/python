@@ -155,7 +155,7 @@ while month < 13:
     minimum_monthly_payment = balance * monthlyPaymentRate
     print "Month: " + str(month)
     print "Minimum monthly payment: " + str(round(minimum_monthly_payment, 2))
-    balance = (balance - (balance*monthlyPaymentRate))*(1+(annualInterestRate/12))
+    balance = (balance - (balance * monthlyPaymentRate)) * (1 + (annualInterestRate / 12))
     print "Remaining balance: " + str(round(balance, 2))
     totalPay += minimum_monthly_payment
     if month == 12:
