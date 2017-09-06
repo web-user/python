@@ -285,9 +285,78 @@ STORE
 # 	print(item)
 # 	print("price: %s" % prices[item])
 # 	print("stock: %s" % stock[item])
-# 	total = total + prices[item] * stock[item]
-	
+# 	total += (prices[item] * stock[item])
+
 # print(total)
+
+
+
+# shopping_list = ["banana", "orange", "apple"]
+
+# stock = {
+# 	"banana": 6,
+# 	"apple": 0,
+# 	"orange": 32,
+# 	"pear": 15
+# }
+    
+# prices = {
+# 	"banana": 4,
+# 	"apple": 2,
+# 	"orange": 1.5,
+# 	"pear": 3
+# }
+
+
+# Write your code below!
+# def compute_bill(food):
+#   total = 0
+#   for item in food:
+#     if stock[item] > 0:
+#       total += prices[item]
+#       stock[item] -= 1
+#   return total
+
+# print(compute_bill(shopping_list))
+
+
+
+
+lloyd = {
+  "name": "Lloyd",
+  "homework": [90.0, 97.0, 75.0, 92.0],
+  "quizzes": [88.0, 40.0, 94.0],
+  "tests": [75.0, 90.0]
+}
+alice = {
+	"name": "Alice",
+	"homework": [100.0, 92.0, 98.0, 100.0],
+	"quizzes": [82.0, 83.0, 91.0],
+	"tests": [89.0, 97.0]
+}
+tyler = {
+	"name": "Tyler",
+	"homework": [0.0, 87.0, 75.0, 22.0],
+	"quizzes": [0.0, 75.0, 78.0],
+	"tests": [100.0, 100.0]
+}
+
+students = [lloyd, alice, tyler]
+
+for item in students:
+	print(item['name'])
+	print(item['homework'])
+
+
+
+
+
+
+
+
+
+
+
 
 
 
