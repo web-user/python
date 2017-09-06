@@ -83,23 +83,20 @@ Set bool_five equal to the result of
 # bool_five = False
 
 
-pyg = 'ay'
+# pyg = 'ay'
 
 
-original = raw_input('Enter a word: ')
+# original = input('Enter a word: ')
 
 
-if len(original) > 0 and original.isalpha():
-	word = original.lower()
-	first = word[0]
-	print(word + first + pyg)
-else:
-	print('empty')
-
-
-
-
-
+# if len(original) > 0 and original.isalpha():
+# 	word = original.lower()
+# 	first = word[0]
+# 	new_word = ' '.join([word, first, pyg])
+# 	print(new_word)
+# 	print(new_word[1:len(new_word)])
+# else:
+# 	print('empty')
 
 
 
@@ -110,13 +107,149 @@ else:
 
 
 
+# def hotel_cost(nights):
+# 	return 140 * nights
+
+# def plane_ride_cost(city):
+# 	if city == "Charlotte":
+# 		return 183
+# 	elif city == "Tampa":
+# 		return 220
+# 	elif city == "Pittsburgh":
+# 		return 222
+# 	elif city == "Los Angeles":
+# 		return 475
+
+# def rental_car_cost(days):
+# 	total = 40 * days
+# 	if days >= 7:
+# 		return total - 50
+# 	elif days >= 3:
+# 		return total - 20
+# 	else:
+# 		return total
+  
+  
+# def trip_cost(city, days):
+# 	sum = rental_car_cost(days) + hotel_cost(days) + plane_ride_cost(city)
+# 	return sum
+
+
+
+# print trip_cost('Los Angeles', 10)
+
+"""
+datatypes LIST
+"""
+
+# x = [1, 2, 3]
+# x.append([4, 5])
+# print (x)
+# gives you: [1, 2, 3, [4, 5]]
+
+
+"""
+extend: Extends list by appending elements from the iterable.
+
+"""
+
+# x = [1, 2, 3]
+# x.extend([4, 5])
+# print (x)
+# gives you: [1, 2, 3, 4, 5]
+
+
+# suitcase = ["sunglasses", "hat", "passport", "laptop", "suit", "shoes"]
+
+# The first and second items (index zero and one)
+# first = suitcase[0:2]
+
+# Third and fourth items (index two and three)
+# print(suitcase[2:4])
+
+# The last two items (index four and five)
+# print(suitcase[4:6])
+
+# animals = ["ant", "bat", "cat"]
+
+# animals.insert(1, "dog")
+# print animals
+
+
+
+
+# start_list = [5, 3, 1, 2, 4]
+# square_list = []
+
+# # Your code here!
+# for number in start_list:
+# 	square_list.append(number ** 2) 
+# square_list.sort()
+
+
+# print square_list
+
+# Your code here!
+# del zoo_animals['Sloth'] 
+# del zoo_animals['Bengal Tiger'] 
+# zoo_animals['Rockhopper Penguin'] = 'My text'
+
+# beatles = ["john","paul","george","ringo","stuart"]
+# beatles.remove("stuart")
+
+
+
+
+# inventory = {
+#   'gold' : 500,
+#   'pouch' : ['flint', 'twine', 'gemstone'], # Assigned a new list to 'pouch' key
+#   'backpack' : ['xylophone','dagger', 'bedroll','bread loaf']
+# }
+
+# # Adding a key 'burlap bag' and assigning a list to it
+# inventory['burlap bag'] = ['apple', 'small ruby', 'three-toed sloth']
+
+# # Sorting the list found under the key 'pouch'
+# inventory['pouch'].sort() 
+
+# # Your code here
+# inventory['pocket'] = ['seashell', 'strange berry', 'lint']
+# inventory['pocket'].sort()
+# inventory['backpack'].remove('dagger')
+
+# print(inventory)
 
 
 
 
 
 
+# my_d = {
+# 	'Word': 1,
+# 	'Applay': [34, 12, 'MD'],
+# 	'week': 45
+# }
 
+# def count_total(dic):
+# 	total = 0
+
+# 	for item in dic:
+# 		if type(dic[item]) == int :
+# 			total = total + 1
+# 	return total
+
+# print(count_total(my_d))
+
+
+# Write your function below!
+# def fizz_count(x):
+#   count = 0
+#   for item in x:
+#     if item == "fizz":
+#       count += 1
+#   return count
+
+# print(fizz_count(["fizz","cat","fizz"]))
 
 # import functools 
 
@@ -128,6 +261,39 @@ else:
 # # print(my_func.__doc__)
 
 # help(my_func)
+
+"""
+STORE
+"""
+# prices = {
+# 	"banana": 4,
+# 	"apple": 2,
+# 	"orange": 1.5,
+# 	"pear": 3
+# }
+
+# stock = {
+# 	"banana": 6,
+# 	"apple": 0,
+# 	"orange": 32,
+# 	"pear": 15
+# }
+
+# total = 0
+
+# for item in prices:
+# 	print(item)
+# 	print("price: %s" % prices[item])
+# 	print("stock: %s" % stock[item])
+# 	total = total + prices[item] * stock[item]
+	
+# print(total)
+
+
+
+
+
+
 
 
 

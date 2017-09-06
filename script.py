@@ -143,6 +143,15 @@ Map applies a function to all the items in an list
 
 # squeret = list( map( lambda x: x **2, items_list ) )
 
+# dots = '...'
+
+"""
+use map() for all items to string
+"""
+# my_str = dots.join(map(str, [100, 150, 200]))
+
+# print(my_str)
+
 """
 Filter 
 filter возвращает список элементов, для которых заданная функция возвращает True.
