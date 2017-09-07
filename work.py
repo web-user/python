@@ -49,6 +49,20 @@ only work with string upper(), lower()
 
 # print(1**2 <= -1)
 
+"""
+FUNCTION
+
+"""
+
+# def total(initial=5, *numbers, **keywords):
+# 	count = initial
+# 	for number in numbers:
+# 		count += number
+# 	for key in keywords:
+# 		count += keywords[key]
+# 	return count
+
+# print(total(10, 1, 2, 3, vegetables=50, fruits=100))
 
 
 # if not 10 - (5 * 2) == 10:
@@ -322,32 +336,30 @@ STORE
 
 
 
-lloyd = {
-  "name": "Lloyd",
-  "homework": [90.0, 97.0, 75.0, 92.0],
-  "quizzes": [88.0, 40.0, 94.0],
-  "tests": [75.0, 90.0]
-}
-alice = {
-	"name": "Alice",
-	"homework": [100.0, 92.0, 98.0, 100.0],
-	"quizzes": [82.0, 83.0, 91.0],
-	"tests": [89.0, 97.0]
-}
-tyler = {
-	"name": "Tyler",
-	"homework": [0.0, 87.0, 75.0, 22.0],
-	"quizzes": [0.0, 75.0, 78.0],
-	"tests": [100.0, 100.0]
-}
+# lloyd = {
+#   "name": "Lloyd",
+#   "homework": [90.0, 97.0, 75.0, 92.0],
+#   "quizzes": [88.0, 40.0, 94.0],
+#   "tests": [75.0, 90.0]
+# }
+# alice = {
+# 	"name": "Alice",
+# 	"homework": [100.0, 92.0, 98.0, 100.0],
+# 	"quizzes": [82.0, 83.0, 91.0],
+# 	"tests": [89.0, 97.0]
+# }
+# tyler = {
+# 	"name": "Tyler",
+# 	"homework": [0.0, 87.0, 75.0, 22.0],
+# 	"quizzes": [0.0, 75.0, 78.0],
+# 	"tests": [100.0, 100.0]
+# }
 
-students = [lloyd, alice, tyler]
+# students = [lloyd, alice, tyler]
 
-for item in students:
-	print(item['name'])
-	print(item['homework'])
-
-
+# for item in students:
+# 	print(item['name'])
+# 	print(item['homework'])
 
 
 
@@ -364,23 +376,22 @@ for item in students:
 
 
 
+import functools
 
 
+def my_decorator(f):
+	@functools.wraps(f)
+	def wrapper(*args, **kwds):
+		print(f.__name__, args, kwds)
+		return f(*args, **kwds)
+	return wrapper
 
+@my_decorator
+def example(x):
+	"""Docstring"""
+	print('Called example function and param: ', x)
 
-# def my_decorator(f):
-# 	@functools.wraps(f)
-# 	def wrapper(*args, **kwds):
-# 		print(f.__name__, args, kwds)
-# 		return f(*args, **kwds)
-# 	return wrapper
-
-# @my_decorator
-# def example(x):
-# 	"""Docstring"""
-# 	print('Called example function and param: ', x)
-
-# example(42)
+example(42)
 
 
 
