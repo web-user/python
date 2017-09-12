@@ -161,3 +161,21 @@ filer уподобляется циклу, но он является встро
 
 # less_than_zero = list(filter(lambda x: x < 0, number_list))
 # print(less_than_zero)
+
+
+import os
+import time
+
+source = ['/doc', '/home/user/lesson/python/code']
+
+target_dir = '/home/user/lesson/python/backup'
+
+target = target_dir + os.sep + time.strftime('%Y-%m-%d-%H-%M-%S') + '.zip'
+
+zip_command = "zip -qr {0} {1}".format(target, ' '.join(source))
+
+
+if os.system(zip_command) == 0:
+	print('Backup create in', target)
+else:
+	print('Backup ERROR!')

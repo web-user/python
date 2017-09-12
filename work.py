@@ -376,28 +376,281 @@ STORE
 
 
 
+# import functools
+
+
+# def my_decorator(f):
+# 	@functools.wraps(f)
+# 	# function wrapper 
+# 	def wrapper(*args, **kwds):
+# 		print(f.__name__, args, kwds)
+# 		return f(*args, **kwds)
+# 	return wrapper
+
+# @my_decorator
+# def example(x):
+# 	"""Docstring"""
+# 	print('Called example function and param: ', x)
+
+# example(42)
+
+
+
+
+# class Counter:
+# 	""" I COUNT"""
+# 	def __init__(self, initial=0): #constract, initilization object
+# 		self.value = initial #write atribute
+# 	def increment(self):
+# 		self.value += 1
+# 	def get(self):
+# 		return self.value
+
+
+# c = Counter(42)
+# print(c.increment())
+# print(c.get())
+
+
+
+# class MemorizingDict(dict):
+# 	""" I doc text """
+# 	pass
+
+# d = MemorizingDict
+
+# MemorizingDict.number = 56
+
+# print(MemorizingDict.__doc__)
+
+# print(sorted(vars(d)))
+
+# del d.__dict__
+
+# print(sorted(vars(d)))
+
+# class myCounter:
+# 	"""This doc Parent One"""
+# 	def __init__(self, doc = __doc__):
+# 		self.doc = myCounter.__doc__
+
+# class Counter:
+# 	"""This doc Parent"""
+# 	all_caounter = []
+
+# 	def __init__(self, initial = 0, doc = __doc__):
+# 		self.__class__.all_caounter.append(self)
+# 		self.value = initial
+# 		self.doc = Counter.__doc__
+
+
+# class OtherCounter(Counter, myCounter):
+# 	"""This doc chaild"""
+# 	def __init__(self, initial = 0,):
+# 		self.initial = initial
+# 		super().__init__(initial, doc = __doc__) # get constract parent all args
+# 	def getDoc(self):
+# 		return ' '.join([self.doc, __class__.__doc__])
+
+
+# oc = OtherCounter()
+
+# print(vars(oc))
+
+# print(oc.__doc__)
+# print(oc.doc)
+# print(oc.getDoc())
+
+
+# class A(object):
+# 	"""asdfasdfasdf"""
+# 	all_caounter = []
+
+# 	def __init__(self, initial = 0):
+# 		self.__class__.all_caounter.append(self)
+# 		self.value = initial
+
+# class B(object):
+# 	"""asdfasdfasdfasdfasf"""
+# 	all_caounter = []
+
+# 	def __init__(self, initial = 0):
+# 		self.__class__.all_caounter.append(self)
+# 		self.value = initial
+
+# class C(B, A):
+# 	def __init__(self, initial = 0):
+# 		self.initial = initial
+# 		super().__init__(initial)
+# 	def getDoc(self):
+# 		for c in __class__.__bases__:
+# 			print( ': '.join([c.__name__, c.__doc__]))
+
+
+# c = C()
+
+# print(C.__bases__)
+
+# print(vars(c))
+
+# c.getDoc()
+
+"""
+check instance of a class 
+"""
+
+# class At:
+# 	def f(self):
+# 		print("A.f")
+
+# class Bt(At):
+# 	def f(self):
+# 		super(Bt, self).f()
+
+
+# class Ct(Bt):
+# 	def f(self):
+# 		super(Ct, self)
+
+# v = Ct()
+# v.f()
+
+# Ct.f()
+
+# print(Ct.mro())
+
+# print(isinstance(Bt(), At))
+
+"""
+Декораторы класса 
+"""
+# def thread_safe(cls):
+# 	orig_increment = cls.increment
+# 	orig_get = cls.get
+
+# 	def increment(self):
+# 		with self.get_lock():
+# 			return orig_increment(self)
+# 	def get(self):
+# 		with self.get_lock():
+# 			return orig_get(self)
+
+# 	cls.get_lock = []
+# 	cls.get = get 
+# 	return cls
+
 import functools
 
+# def singleton(cls):
+# 	instance = None
 
-def my_decorator(f):
-	@functools.wraps(f)
-	def wrapper(*args, **kwds):
-		print(f.__name__, args, kwds)
-		return f(*args, **kwds)
-	return wrapper
+# 	@functools.wraps(cls)
+# 	def inner(*args, **kwards):
+# 		nonlocal instance
+# 		if instance is None:
+# 			instance = cls(*args, **kwards)
+# 		return instance
+# 	return inner
 
-@my_decorator
-def example(x):
-	"""Docstring"""
-	print('Called example function and param: ', x)
-
-example(42)
-
-
+# @singleton
+# class Noop:
+# 	"I do nothing"
 
 
+# print(id(Noop()))
 
+# import warnings 
+# import functools
 
+# def deprecated(cls):
+# 	orig_init = cls.__init__
 
+# 	@functools.wraps(cls.__init__)
+# 	def new_init(self, *args, **kwargs):
+# 		warnings.warn(cls.__name__ + " is deprecated.", category = DeprecationWarning)
+# 		orig_init(self, *args, **kwargs)
+# 	cls.__init__ = new_init
+# 	return cls
 
+# @deprecated
+# class Counter:
+# 	def __init__(self, initial = 0):
+# 		self.value = initial
+
+# cv = Counter()
+
+# print(cv)
+
+# class A(object):
+# 	def foo(self,x):
+# 		print("executing foo %s,%s " % (self,x))
+
+# 	@staticmethod
+# 	def static_foo(x):
+# 		print("executing static_foo %s " % x)
+
+# a=A()
+# a.foo(1)
+
+# a.static_foo(1)
+
+"""
+executing foo <__main__.A object at 0x7f520aa62ba8>,1 
+executing static_foo 1
+"""
+
+lloyd = {
+	"name": "Lloyd",
+	"homework": [90.0, 97.0, 75.0, 92.0],
+	"quizzes": [88.0, 40.0, 94.0],
+	"tests": [75.0, 90.0]
+}
+alice = {
+	"name": "Alice",
+	"homework": [100.0, 92.0, 98.0, 100.0],
+	"quizzes": [82.0, 83.0, 91.0],
+	"tests": [89.0, 97.0]
+}
+tyler = {
+	"name": "Tyler",
+	"homework": [0.0, 87.0, 75.0, 22.0],
+	"quizzes": [0.0, 75.0, 78.0],
+	"tests": [100.0, 100.0]
+}
+
+# Add your function below!
+def average(numbers):
+	total = sum(numbers)
+	return float(total) / len(numbers)
+
+def get_average(student):
+	homework = 0.1 * average(student['homework'])
+	quizzes = 0.3 * average(student['quizzes'])
+	tests = 0.6 * average(student['tests'])
+	return homework + quizzes + tests
+
+def get_letter_grade(score):
+	if score >= 90:
+		return 'A'
+	elif score >= 80:
+		return 'B'
+	elif score >= 70:
+		return 'C'
+	elif score >= 60:
+		return 'D'
+	else:
+		return 'F'
+
+# print(get_letter_grade(lloyd))
+
+student = [lloyd, alice, tyler]
+  	
+def get_class_average(class_list):
+	results = []
+	for item in class_list:
+		results.append(get_average(item))
+	return results
+
+print(get_class_average(student))
+print(get_letter_grade(get_class_average(student)))
 
