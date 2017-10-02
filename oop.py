@@ -91,7 +91,37 @@ c.y = 45 не меняем статическую переменную а соз
 # obj  = MyObject()
 # print(obj.get_data())
 
-def mean(numbers):
-    return float(sum(numbers)) / max(len(numbers), 1)
+"""
+Полиморфизм
 
-print(mean([1,2,3]))
+один и тотже обьект введет себя по разному 
+
+"""
+
+# def mean(numbers):
+#     return float(sum(numbers)) / max(len(numbers), 1)
+
+# print(mean([1,2,3]))
+
+class vectorClass:
+	def __init__(self, x = 0, y = 0, z = 0):
+		self.x = x
+		self.y = y
+		self.z = z
+
+	def __mul__(self, other):
+		if isinstance(other, (int, float)):
+			return vectorClass(self.x * other,
+				self.y * other,
+				self.z * other)
+		elif isinstance(other, __class__):
+			return vectorClass(self.x * other.x,
+				self.y * other.y,
+				self.z * other.z)
+
+v1 = vectorClass(1,2,3)
+v2 = vectorClass(2,3,4)
+v3 = v1 * v2
+
+print(v3.x)
+print(v3.y)
