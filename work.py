@@ -1179,3 +1179,88 @@ def example(x):
     print('Called example function and param: ', x)
 
 example(42)
+
+
+
+import numpy as np
+from matplotlib import pyplot as plt
+import turtle
+
+
+def draw_sierpinski(length,depth):
+	if depth==0:
+		for i in range(3):
+			turtle.forward(length)
+			turtle.left(120)
+	else:
+		draw_sierpinski(length/2,depth-1)
+		turtle.forward(length/2)
+		draw_sierpinski(length/2,depth-1)
+
+		turtle.backward(length/2)
+		turtle.left(60)
+		turtle.forward(length/2)
+		turtle.right(60)
+
+		draw_sierpinski(length/2,depth-1)
+		turtle.left(60)
+		turtle.backward(length/2)
+		turtle.right(60)
+
+
+
+
+def f(x):
+	print(x)
+
+def world_aq(s):
+	return s[0] + s[1:].replace(s[0], '*')
+
+print(world_aq('chekout'))
+
+
+
+class Perceptron:
+    
+    def __init__(self, input_length, weights=None):
+        if weights is None:
+            self.weights = np.ones(input_length) * 0.5
+        else:
+            self.weights = weights
+        
+    @staticmethod
+    def unit_step_function(x):
+        if x > 0.5:
+            return 1
+        return 0
+        
+    def __call__(self, in_data):
+        weighted_input = self.weights * in_data
+        weighted_sum = weighted_input.sum()
+        return Perceptron.unit_step_function(weighted_sum)
+    
+p = Perceptron(2, np.array([0.5, 0.5]))
+for x in [np.array([0, 0]), np.array([0, 1]), 
+          np.array([1, 0]), np.array([1, 1])]:
+    y = p(np.array(x))
+    print(x, y)
+
+
+
+
+class1 = [(3, 4), (4.2, 5.3), (4, 3), (6, 5), (4, 6), (3.7, 5.8),
+          (3.2, 4.6), (5.2, 5.9), (5, 4), (7, 4), (3, 7), (4.3, 4.3) ] 
+class2 = [(-3, -4), (-2, -3.5), (-1, -6), (-3, -4.3), (-4, -5.6), 
+          (-3.2, -4.8), (-2.3, -4.3), (-2.7, -2.6), (-1.5, -3.6), 
+          (-3.6, -5.6), (-4.5, -4.6), (-3.7, -5.8) ]
+X, Y = zip(*class1)
+plt.scatter(X, Y, c="r")
+X, Y = zip(*class2)
+plt.scatter(X, Y, c="b")
+plt.show()
+
+
+if __name__ == '__main__':
+	f('Admin')
+	draw_sierpinski(500,3)
+	turtle.exitonclick()
